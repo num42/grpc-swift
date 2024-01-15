@@ -1,5 +1,5 @@
 /*
- * Copyright 2023, gRPC Authors All rights reserved.
+ * Copyright 2024, gRPC Authors All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,21 +13,5 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import GRPCCore
 
-@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
-extension RPCAsyncSequence {
-  static func elements(_ elements: Element...) -> Self {
-    return .elements(elements)
-  }
-
-  static func elements(_ elements: [Element]) -> Self {
-    let stream = AsyncStream<Element> {
-      for element in elements {
-        $0.yield(element)
-      }
-      $0.finish()
-    }
-    return RPCAsyncSequence(wrapping: stream)
-  }
-}
+// Add tests to this package.
